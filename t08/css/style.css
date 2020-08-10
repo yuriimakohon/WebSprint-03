@@ -1,0 +1,31 @@
+table {
+  margin: auto;
+  justify-content: center;
+
+  border: 5px solid black;
+}
+
+table td {
+  font-size: 28px;
+  text-align: center;
+  padding: 15px 40px;
+}
+
+table thead td {
+  background: rgb(230, 43, 43);
+}
+
+table tbody td {
+  background: lightgrey;
+}
+
+#notification {
+  position: absolute;
+  display: inline-block;
+  top: 25px;
+  right: 25px;
+
+  padding: 10px 25px;
+  background-color: gray;
+  border-radius: 50px;
+}

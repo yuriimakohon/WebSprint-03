@@ -1,0 +1,60 @@
+let order = "DESC";
+
+function sortTable(sortType) {
+  if (sortType == "name") sortType = 0;
+  if (sortType == "strength") sortType = 1;
+  if (sortType == "age") sortType = 2;
+
+  let rows = Array.from(table.rows).slice(1);
+  alert(rows[5].cells[0].innerHTML);
+  rows = rows.reverse();
+  // for (let row in rows) {
+  //   alert(rows[row].cells[0].innerHTML);
+  // }
+  // rows.sort((a, b) => {
+  //   alert(a.cells[0].innerHTML);
+  //   return a.cells[0].innerHTML < b.cells[0].innerHTML;
+  // });
+  // if (order === "ASC") {
+  //   order = "DESC"
+  // } else {
+  //   rows = rows.reverse();
+  //   order = "ASC";
+  // }
+}
+
+function addTr(parent, content) {
+  let tr = document.createElement("tr");
+
+  for (let cellNum in content) {
+    let td = document.createElement("td");
+
+    td.innerHTML = content[cellNum];
+    tr.appendChild(td);
+  }
+  parent.appendChild(tr);
+}
+
+let placeholder = document.getElementById("placeholder");
+let table = document.createElement("table");
+let thead = document.createElement("thead");
+let tbody = document.createElement("tbody");
+
+placeholder.innerHTML = '';
+placeholder.appendChild(table);
+table.appendChild(thead);
+table.appendChild(tbody);
+addTr(thead, ["<div id='nameCell'>Name</div>", "<div id='strengthCell'>Strength</div>", "<div id='ageCell'>Age</div>"]);
+addTr(tbody, ["Black<br>Panhter", 66, 53]);
+addTr(tbody, ["Captain<br>America", 79, 137]);
+addTr(tbody, ["Captain<br>Marvel", 97, 26]);
+addTr(tbody, ["Hulk", 80, 49]);
+addTr(tbody, ["Iron<br>Man", 88, 48]);
+addTr(tbody, ["Spider-<br>Man", 78, 16]);
+addTr(tbody, ["Thanos", 99, 1000]);
+addTr(tbody, ["Thor", 95, 1000]);
+addTr(tbody, ["Yon-<br>Rogg", 73, 52]);
+
+document.getElementById("nameCell").onclick = () => sortTable("name");
+document.getElementById("strengthCell").onclick = () => sortTable("strength");
+document.getElementById("ageCell").onclick = () => sortTable("age");
