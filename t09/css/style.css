@@ -1,0 +1,122 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif  ;
+  text-align: center;
+  background-color: rgb(50, 50, 50);
+}
+
+h1 {
+  font-weight: 900;
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  gap: 20px;
+  width: 1200px;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 700px;
+  height: 700px;
+}
+
+.cell {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 210px;
+  background-color: #c8c8c8;
+  border-bottom: 10px solid #aaa;
+  /* box-shadow: 5px 5px 0 orange; */
+  cursor: pointer;
+  font-size: 80px;
+  font-weight: 900;
+  color: #3a3a3a;
+}
+
+.win {
+  font-size: 100px;
+  color: green;
+}
+
+.cell::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  transform: translate(7px, 103%);
+  border-top: 7px solid orange;
+  border-left: 7px solid transparent;
+  width: 100%;
+  height: 100%;
+}
+
+.cell::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  transform: translate(100%, 8px);
+  border-left: 7px solid orange;
+  border-top: 7px solid transparent;
+  width: 100%;
+  height: 104%;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #c8c8c8;
+  width: 180px;
+  padding: 20px;
+  font-weight: 700;
+}
+
+#player1,
+#player2 {
+  display: flex;
+  height: 50px;
+  background: #ddd;
+  margin-bottom: 10px;
+
+  font-size: larger;
+  justify-content: center;
+  align-items: center;
+}
+
+#player1 {
+  background: orange;
+}
+
+#counter {
+  font-size: 42px;
+  margin-top: 5px;
+}
+
+#winStatus {
+  visibility: hidden;
+  margin-top: 120px;
+  font-size: 34px;
+}
+
+#playAgainBtn {
+  margin-top: 122%;
+  padding: 15px;
+  text-transform: uppercase;
+  color: #ddd;
+  background-color: #3a3a3a;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+#playAgainBtn:hover {
+  transform: scale(1.02);
+  background-color: #474747;
+}
