@@ -1,26 +1,42 @@
-let order = "DESC";
+let order = "ASC";
 
 function sortTable(sortType) {
+  let rows = Array.from(tbody.rows);
+  
   if (sortType == "name") sortType = 0;
   if (sortType == "strength") sortType = 1;
   if (sortType == "age") sortType = 2;
+  rows.sort((row1, row2) => {
+    return sortType == 0 ?
+      sortByName(row1, row2)
+      : sortByNumbers(row1, row2, sortType);
+  });
+  rows = setOrder(rows, sortType);
+  rows.forEach((row) => tbody.append(row));
+}
 
-  let rows = Array.from(table.rows).slice(1);
-  alert(rows[5].cells[0].innerHTML);
-  rows = rows.reverse();
-  // for (let row in rows) {
-  //   alert(rows[row].cells[0].innerHTML);
-  // }
-  // rows.sort((a, b) => {
-  //   alert(a.cells[0].innerHTML);
-  //   return a.cells[0].innerHTML < b.cells[0].innerHTML;
-  // });
-  // if (order === "ASC") {
-  //   order = "DESC"
-  // } else {
-  //   rows = rows.reverse();
-  //   order = "ASC";
-  // }
+function setOrder(rows, sortType) {
+  let notification = document.querySelector("#notification");
+
+  if (order == "ASC") {
+    order = "DESC";
+    rows = rows.reverse();
+  } else {
+    order = "ASC";
+  }
+  if (sortType == 0) sortType = "Name";
+  if (sortType == 1) sortType = "Strength";
+  if (sortType == 2) sortType = "Age";
+  notification.innerHTML = `Sorting by ${sortType}, order: ${order}`;
+  return rows;
+}
+
+function sortByName(row1, row2) {
+  return row1.cells[0].innerHTML > row2.cells[0].innerHTML ? 1 : -1;
+}
+
+function sortByNumbers(row1, row2, sortType) {
+  return row1.cells[sortType].innerHTML - row2.cells[sortType].innerHTML;
 }
 
 function addTr(parent, content) {
