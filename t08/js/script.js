@@ -2,7 +2,7 @@ let order = "ASC";
 
 function sortTable(sortType) {
   let rows = Array.from(tbody.rows);
-  
+
   if (sortType == "name") sortType = 0;
   if (sortType == "strength") sortType = 1;
   if (sortType == "age") sortType = 2;
