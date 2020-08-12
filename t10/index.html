@@ -3,12 +3,25 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>____</title>
-  <meta name="description" content="">
+  <title>Image slider</title>
+  <meta name="description" content="t10. Image slider">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <h1>____</h1>
+  <div class="slider">
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <div class="slide fade">
+      <img src="https://gallery.yopriceville.com/var/albums/Backgrounds/Sea_Turtle_Background.jpg" alt="turtle" style="width:100%">
+    </div>
+    <div class="slide fade">
+      <img src="https://i.pinimg.com/originals/b2/b6/a4/b2b6a4deb5cf7d47bd90d07c5ddf6f54.jpg" alt="whale 1" style="width:100%">
+    </div>
+    <div class="slide fade">
+      <img src="https://i.pinimg.com/originals/c0/8c/03/c08c03d042235922094ec6521f8d22ac.jpg" alt="whale 2" style="width:100%">
+    </div>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
 
   <script src="js/script.js"></script>
 </body>
