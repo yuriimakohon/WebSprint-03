@@ -34,11 +34,16 @@ h1 {
   height: 210px;
   background-color: #c8c8c8;
   border-bottom: 10px solid #aaa;
-  /* box-shadow: 5px 5px 0 orange; */
   cursor: pointer;
   font-size: 80px;
   font-weight: 900;
   color: #3a3a3a;
+  transition: .2s;
+}
+
+.cell:hover {
+  background-color: #bbb;
+  box-shadow: 10px 10px 5px black;
 }
 
 .win {
@@ -61,7 +66,7 @@ h1 {
   content: '';
   position: absolute;
   right: 0;
-  transform: translate(100%, 8px);
+  transform: translate(100%, 7px);
   border-left: 7px solid orange;
   border-top: 7px solid transparent;
   width: 100%;

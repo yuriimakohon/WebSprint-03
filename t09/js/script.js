@@ -38,27 +38,45 @@ function changePlayer(cellIndex) {
 }
 
 function checkWin() {
+  let isDraw = true;
+
   for (let variant in winMap) {
-    idxArr = winMap[variant];
+    let idxArr = winMap[variant];
     if ((fieldMap[idxArr[0]] == fieldMap[idxArr[1]])
       && (fieldMap[idxArr[1]] == fieldMap[idxArr[2]])
       && (fieldMap[idxArr[2]] != 0)) {
-      setWiner(idxArr);
+      isDraw = false;
+      move === 'X' ? move = 'O' : move = 'X';
+      finishGame(move, idxArr);
     }
+  }
+  if (isDraw && turnsCounter.innerHTML == 9) {
+    finishGame("draw", null);
   }
 }
 
-function setWiner(idxArr) {
-  move === 'X' ? move = 'O' : move = 'X';
-  document.querySelector(`#c${idxArr[0]}`).className += " win";
-  document.querySelector(`#c${idxArr[1]}`).className += " win";
-  document.querySelector(`#c${idxArr[2]}`).className += " win";
-  document.querySelector(".sidebar").style.background = "green";
-  document.querySelector(".gameStatus").style.color = "white";
-  if (move == 'X') {
-    document.querySelector("#winStatus").innerHTML = "Player 1<br>won!";
+let sidebar = document.querySelector(".sidebar");
+let winStatus = document.querySelector("#winStatus");
+let gameStatus = document.querySelector(".gameStatus");
+let player1 = document.querySelector("#player1");
+let player2 = document.querySelector("#player2");
+
+function finishGame(winner, idxArr) {
+  if (winner != "draw") {
+    document.querySelector(`#c${idxArr[0]}`).className += " win";
+    document.querySelector(`#c${idxArr[1]}`).className += " win";
+    document.querySelector(`#c${idxArr[2]}`).className += " win";
+    sidebar.style.background = "green";
+    winner == 'X' ?
+      winStatus.innerHTML = "Player 1<br>won!"
+      : winStatus.innerHTML = "Player 2<br>won!";
   } else {
-    document.querySelector("#winStatus").innerHTML = "Player 2<br>won!";
+    winStatus.innerHTML = "It's a<br>draw!";
+    sidebar.style.background = "orange";
   }
-  document.querySelector("#winStatus").style.visibility = "visible";
+  gameStatus.style.color = "white";
+  winStatus.style.visibility = "visible";
+  player1.style.background = "#ddd";
+  player2.style.background = "#ddd";
+  field.removeEventListener("click", setMove);
 }
