@@ -1,6 +1,9 @@
 let notesArchive = document.querySelector("#notesArchive");
 let arr = document.cookie.split(/,/).slice(1);
 
+if (arr.length == 0)
+  notesArchive.append("[Empty]");
+
 for (let log in arr) {
   addCookieToNoteArchive(arr[log]);
 }
@@ -37,5 +40,7 @@ function addCookieToNoteArchive(cookie) {
   let newNote = document.createElement("div");
 
   newNote.append(`--> ${cookie}`);
+  if (notesArchive.innerHTML == "[Empty]")
+    notesArchive.innerHTML = "";
   notesArchive.append(newNote);
 }
