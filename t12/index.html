@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes with local storage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="t12. Notes with local storage">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="buttonsContainer">
+      <button id="addBtn" onclick="addToStorage()">Add to storage</button>
+      <button id="clearBtn" onclick="clearStorage()">Clear storage</button>
+    </div>
+    <div class="textareaContainer">
+      <label for="textareaStorage">Text input:</label>
+      <textarea name="noteInput" id="textareaStorage"></textarea>
+    </div>
+    <div class="archiveContainer">
+      <label for="notesArchive">Notes archive:</label>
+      <div id="notesArchive"></div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
