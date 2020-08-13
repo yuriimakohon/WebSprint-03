@@ -29,11 +29,11 @@ function clearCookie() {
 function setCookie(newValue) {
   newValue = document.cookie.slice(7)
   + ", " + newValue;
+  newValue = newValue.replace(/\n/g, ' ');
   var d = new Date();
   d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
   var expires = "expires=" + d.toUTCString();
-  document.cookie = "cookie=" + newValue + ";"
-  + expires;
+  document.cookie = "cookie=" + newValue + ";" + expires;
 }
 
 function addCookieToNoteArchive(cookie) {
