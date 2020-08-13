@@ -1,0 +1,72 @@
+.wrapper {
+  width: 620px;
+  margin: auto;
+  margin-top: 70px;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  outline: none;
+  appearance: none;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 7px;
+  transition: .1s ease;
+  cursor: pointer;
+}
+
+#addBtn {
+  background-color: rgb(115, 200, 207);
+  color: white;
+}
+
+button:hover {
+  box-shadow: 0 0 5px black;
+}
+
+button:active {
+  box-shadow: 0 0 2px black;
+}
+
+.textreaContainer,
+.archiveContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 25px;
+  margin-top: 15px;
+  border-radius: 7px;
+  background-color: #eee;
+}
+
+#texatareaCookie {
+  min-height: 210px;
+  max-width: 99%;
+  min-width: 99%;
+  border: 3px solid #73c8cf;
+  border-radius: 7px;
+  outline: none;
+}
+
+#texatareaCookie:focus {
+  border-color: #4997f0;
+}
+
+.textreaContainer {
+  min-height: 200px;
+  max-height: 400px;
+}
+
+label {
+  padding-bottom: 10px;
+  color: rgb(66, 122, 124);
+}
+
+#notesArchive {
+  background-color: white;
+  border-radius: 7px;
+  padding: 15px 10px;
+}
